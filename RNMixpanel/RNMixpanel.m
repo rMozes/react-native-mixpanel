@@ -271,4 +271,22 @@ RCT_EXPORT_METHOD(reset:(NSString *)apiToken
     resolve(nil);
 }
 
+// show notifications on active
+RCT_EXPORT_METHOD(showNotificationOnActive:(BOOL)show
+                  apiToken:(NSString *)apiToken
+                  resolve:(RCTPromiseResolveBlock)resolve
+                  reject:(RCTPromiseRejectBlock)reject) {
+    [self getInstance:apiToken].showNotificationOnActive = show;
+    resolve(nil);
+}
+
+// show notification
+
+RCT_EXPORT_METHOD(showNotification:(NSString *)apiToken
+                  resolve:(RCTPromiseResolveBlock)resolve
+                  reject:(RCTPromiseRejectBlock)reject) {
+    [[self getInstance:apiToken] showNotification];
+    resolve(nil);
+}
+
 @end
