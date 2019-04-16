@@ -365,7 +365,7 @@ public class RNMixpanelModule extends ReactContextBaseJavaModule implements Life
     public void showNotification(final String apiToken, Promise promise) {
         final MixpanelAPI instance = getInstance(apiToken);
         synchronized(instance) {
-            instance.getPeople().showNotificationIfAvailable(this);
+            instance.getPeople().showNotificationIfAvailable(getCurrentActivity());
         }
         promise.resolve(null);
     }
